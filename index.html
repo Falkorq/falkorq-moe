@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>falkor</title>
+    <meta
+      name="description"
+      content="Personal page of Yui / Falkorq — Moscow, 17. Seven years running communities: five channels, manga translation, photography."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="falkor" />
+    <meta
+      property="og:description"
+      content="Personal page of Yui / Falkorq — Moscow, 17. Seven years running communities: five channels, manga translation, photography."
+    />
+    <meta property="og:image" content="https://falkorq.moe/assets/share-1200x630.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://falkorq.moe/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="falkor" />
+    <meta
+      name="twitter:description"
+      content="Personal page of Yui / Falkorq — Moscow, 17. Seven years running communities: five channels, manga translation, photography."
+    />
+    <meta name="twitter:image" content="https://falkorq.moe/assets/share-1200x630.jpg" />
+    <link rel="icon" type="image/png" href="favicon.png?v=20260927-1" />
+    <link rel="stylesheet" href="fonts.css?v=20261002-1" />
+    <link rel="stylesheet" href="style.css?v=20260928-3" />
+    <link rel="stylesheet" href="personal.css?v=20261002-3" />
+    <script>
+      // Сайт всегда открывается на hero: никакого восстановления прокрутки.
+      try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (e) {}
+      window.scrollTo(0, 0);
+      // Failsafe: снимаем .intro, даже если script.js упадёт — сайт не зависнет в чёрной пустоте.
+      window.setTimeout(function () { document.body.classList.remove("intro"); }, 15000);
+    </script>
+    <noscript>
+      <style>
+        body.intro { overflow: auto; }
+        #preloader { display: none; }
+        .reveal { opacity: 1 !important; transform: none !important; }
+        body.intro .site-nav { transform: none; opacity: 1; }
+        body.intro .scroll-indicator-wrapper { opacity: 1; transform: none; }
+      </style>
+    </noscript>
+  </head>
+  <body class="intro">
+
+    <!-- ПРЕЛОАДЕР: чёрный экран, без процентов и круга (как в оригинале serophito).
+         По завершении fade → мир проявляется (снимаем body.intro). Логика — script.js. -->
+    <div id="preloader" class="preloader" aria-hidden="true"></div>
+
+    <!-- КОСМИЧЕСКИЙ ФОН (ЧБ canvas: звёзды, медленные орбиты) -->
+    <canvas id="cosmos-bg" aria-hidden="true"></canvas>
+
+    <!-- ФОНОВЫЕ БЛИКИ (только ЧБ) -->
+    <div class="ambient-glow glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+    <!-- ==================================================================
+         ШАПКА: ПОЛНОШИРИННЫЙ СТЕКЛЯННЫЙ БАР
+         ================================================================== -->
+    <nav class="site-nav" aria-label="Primary">
+      <div class="nav-zone nav-left">
+        <button class="nav-brand" type="button" data-scroll="hero" aria-label="back to top">FALKORQ</button>
+        <span class="nav-clock" id="nav-clock" aria-label="Moscow time">MOW 00:00:00</span>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <button class="nav-link active" data-scroll="hero" type="button">main</button>
+        <button class="nav-link" data-scroll="about" type="button">about</button>
+        <button class="nav-link" data-scroll="projects" type="button">work</button>
+        <button class="nav-link" data-scroll="yuna" type="button">yuna</button>
+        <button class="nav-link" data-scroll="signals" type="button">signals</button>
+        <button class="nav-link" data-scroll="setup" type="button">setup</button>
+        <button class="nav-link" data-scroll="links" type="button">networks</button>
+        <button class="nav-link" data-scroll="support" type="button">support</button>
+      </div>
+
+      <div class="nav-zone nav-right">
+        <button class="np-name" id="np-track-name" type="button" aria-label="open recent track">track</button>
+      </div>
+    </nav>
+
+    <!-- ==================================================================
+         СЕКТОР 1: HERO — ВХОД В ПРОСТРАНСТВО
+         ================================================================== -->
+    <section id="hero" class="fullscreen-section hero-section" data-nav="hero">
+      <div class="hero-center-manifest">
+        <div class="hero-copy">
+          <h1 id="heroName" class="hero-title" role="button" tabindex="0"
+              data-scroll="about" aria-label="enter the personal space">FALKORQ</h1>
+
+          <div class="hero-meta-strip reveal">
+            <span class="hero-meta-role">Yui Titov · Moscow</span>
+            <span class="hero-meta-place">communities, manga, photography</span>
+          </div>
+        </div>
+
+        <figure class="hero-art reveal">
+          <img src="assets/vanilla-hero.jpg" alt="Vanilla from Nekopara with a blue bow and a raised hand" />
+          <figcaption>Vanilla / Nekopara</figcaption>
+        </figure>
+      </div>
+
+    </section>
+
+    <!-- ==================================================================
+         СЕКТОР 2: PERSONAL SPACE (about)
+         ================================================================== -->
+    <section id="about" class="fullscreen-section" data-nav="about">
+      <main class="section-container">
+        <div class="about-layout">
+          <div class="about-intro reveal">
+            <h2 class="about-title">Hi, I'm Yui.</h2>
+            <p class="about-lead">I spend most of my time keeping online communities running.</p>
+            <p class="about-meta">17 <span aria-hidden="true">·</span> Moscow <span aria-hidden="true">·</span> Russian / English</p>
+          </div>
+
+          <figure class="id-plate reveal">
+            <div class="id-plate-frame">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="assets/portrait-640.webp?v=20260927-2 640w, assets/portrait-1080.webp?v=20260927-2 1080w"
+                  sizes="(min-width: 969px) 420px, calc(100vw - 60px)"
+                />
+                <img
+                  class="id-plate-img"
+                  src="assets/portrait.jpg?v=20260927-2"
+                  alt="White-haired catgirl in a yellow dress by the sea"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+            <figcaption class="id-plate-caption">Vanilla — Nekopara</figcaption>
+          </figure>
+
+          <div class="about-details reveal">
+            <div class="about-detail">
+              <h3>Community work</h3>
+              <p>Seven years in. Today I manage five channels: finding material, planning posts and publishing them.</p>
+            </div>
+            <div class="about-detail">
+              <h3>On the side</h3>
+              <p>I work on manga translations and take photos.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- ==================================================================
+         СЕКТОР 3: WORK & PROJECTS — реестр (две группы, пять записей)
+         ================================================================== -->
+    <section id="projects" class="fullscreen-section" data-nav="projects">
+      <div class="section-container">
+
+        <header class="section-head reveal">
+          <h2 class="section-title section-title-serif">work &amp; projects</h2>
+          <p class="section-sub">what I spend my time on</p>
+        </header>
+
+        <div class="project-registry reveal">
+
+          <div class="registry-group">
+            <p class="registry-group-label">management</p>
+            <p class="project-lead">Two networks I manage day to day.</p>
+
+            <article class="registry-row registry-row-featured">
+              <span class="registry-index">01</span>
+              <div class="registry-body">
+                <h3 class="registry-name">AstreaMedia</h3>
+                <p class="registry-desc">Adult media network. I handle sourcing and supply.</p>
+              </div>
+              <span class="registry-role">Manager</span>
+            </article>
+
+            <article class="registry-row">
+              <span class="registry-index">02</span>
+              <div class="registry-body">
+                <h3 class="registry-name">Seimei</h3>
+                <p class="registry-desc">Telegram channels. I coordinate the schedule and daily publishing.</p>
+              </div>
+              <span class="registry-role">Manager</span>
+            </article>
+          </div>
+
+          <div class="registry-group">
+            <p class="registry-group-label">translation</p>
+            <p class="project-lead">Manga releases with three different teams.</p>
+
+            <article class="registry-row">
+              <span class="registry-index">03</span>
+              <div class="registry-body">
+                <h3 class="registry-name">Titans of Loneliness</h3>
+                <p class="registry-desc">Typesetting, cleaning, translation, and uploads.</p>
+              </div>
+              <span class="registry-role">Co-founder</span>
+            </article>
+
+            <article class="registry-row">
+              <span class="registry-index">04</span>
+              <div class="registry-body">
+                <h3 class="registry-name">DiwineWaifus</h3>
+                <p class="registry-desc">Typesetting, cleaning, translation, and uploads.</p>
+              </div>
+              <span class="registry-role">Co-founder</span>
+            </article>
+
+            <article class="registry-row">
+              <span class="registry-index">05</span>
+              <div class="registry-body">
+                <h3 class="registry-name">LilithTeam</h3>
+                <p class="registry-desc">Typesetting for manga releases.</p>
+              </div>
+              <span class="registry-role">Member</span>
+            </article>
+          </div>
+
+        </div>
+
+        <!-- отдельная иллюстрация после списка проектов -->
+        <figure class="visual-break reveal">
+          <img class="visual-break-img" src="assets/vanilla-projects.jpg"
+               alt="Vanilla from Nekopara with blue roses in her hair" loading="lazy" />
+          <figcaption class="visual-break-meta">
+            <span>Vanilla — Nekopara</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         СЕКТОР 4: YUNA — эмоциональная секция
+         ================================================================== -->
+    <section id="yuna" class="fullscreen-section" data-nav="yuna">
+      <div class="section-container yuna-container">
+        <header class="yuna-head reveal">
+          <h2 class="yuna-title">yuna of falkor</h2>
+        </header>
+
+        <div class="yuna-layout">
+          <div class="yuna-counter-block reveal">
+            <div class="yuna-ring" aria-hidden="true"></div>
+            <span class="yuna-counter" id="yuna-days">000</span>
+            <span class="yuna-counter-label">days</span>
+          </div>
+
+          <div class="yuna-note reveal">
+            <figure class="yuna-figure">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="assets/hero-640.webp?v=20260927-2 640w, assets/hero-1080.webp?v=20260927-2 1080w"
+                  sizes="(min-width: 969px) 330px, calc(100vw - 60px)"
+                />
+                <img
+                  class="yuna-figure-img"
+                  src="assets/hero.jpg?v=20260927-2"
+                  alt="White-haired catgirl with a swim ring and an ice pop under a blue sky"
+                  loading="lazy"
+                />
+              </picture>
+            </figure>
+            <p class="yuna-body">She has been here since 01.06.2025.</p>
+            <p class="yuna-sign">Yui &amp; Yuna — Falkor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         СЕКТОР 5: SIGNALS — живые данные
+         ================================================================== -->
+    <section id="signals" class="fullscreen-section" data-nav="signals">
+      <div class="section-container">
+        <header class="signals-head reveal">
+          <h2 class="section-title">now</h2>
+          <span class="signals-tag">music and a few things on my mind</span>
+        </header>
+
+        <div class="signals-grid">
+          <article class="np-module reveal">
+            <div class="np-head">
+              <span class="np-head-title">last played</span>
+              <p class="np-source" id="now-playing-source">waiting for signal.</p>
+            </div>
+            <div class="np-body">
+              <div class="np-cover-shell">
+                <img
+                  class="np-cover"
+                  id="now-playing-cover"
+                  alt="Album cover for the recent track"
+                  hidden
+                />
+                <span class="np-cover-fallback" id="now-playing-cover-fallback">NO ART</span>
+              </div>
+              <div class="np-copy">
+                <strong class="np-track" id="now-playing-track">syncing...</strong>
+                <p class="np-artist" id="now-playing-artist">stats.fm feed</p>
+              </div>
+            </div>
+            <div class="np-foot">
+              <a
+                class="card-action-btn"
+                id="now-playing-link"
+                href="https://stats.fm/user/falkorq"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div class="liquid-bg"></div>
+                <span class="action-text">open track</span>
+              </a>
+            </div>
+          </article>
+
+          <div class="state-hud reveal">
+            <div class="state-row">
+              <span>watching</span>
+              <strong id="current-watching">Serial Experiments Lain</strong>
+            </div>
+            <div class="state-row">
+              <span>reading</span>
+              <strong id="current-reading">Independent translation work</strong>
+            </div>
+            <div class="state-row">
+              <span>listening</span>
+              <strong id="current-listening">Loading recent track</strong>
+            </div>
+          </div>
+        </div>
+
+        <figure class="signals-quote reveal">
+          <div class="signals-quote-copy">
+            <blockquote class="quote-block" id="quote-text">
+              No matter where you go, everyone's connected.
+            </blockquote>
+            <cite class="quote-source" id="quote-source">Serial Experiments Lain</cite>
+          </div>
+          <img class="signals-art" src="assets/vanilla-signals.jpg" alt="" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         СЕКТОР 6: SETUP — инвентарь
+         ================================================================== -->
+    <section id="setup" class="fullscreen-section" data-nav="setup">
+      <div class="section-container">
+        <header class="section-head section-head-mascot reveal">
+          <div class="section-head-main">
+            <img class="section-mascot" src="assets/vanilla-setup.jpg" alt="" loading="lazy" />
+            <h2 class="section-title">setup</h2>
+          </div>
+          <span class="head-tag">the devices I use</span>
+        </header>
+
+        <div class="setup-grid">
+          <article class="hud-panel reveal">
+            <div class="hud-head"><span class="hud-label">workstation</span><span class="hud-note">daily driver</span></div>
+            <div class="spec-rows" aria-label="Workstation specifications">
+              <div class="spec-row"><span>CPU</span><strong>Intel Xeon E5-2680 v4 (14 cores)</strong></div>
+              <div class="spec-row"><span>RAM</span><strong>32 GB DDR4, quad channel</strong></div>
+              <div class="spec-row"><span>GPU</span><strong>Palit GeForce GTX 1060 6 GB</strong></div>
+            </div>
+          </article>
+
+          <article class="hud-panel reveal">
+            <div class="hud-head"><span class="hud-label">phones</span></div>
+            <div class="spec-rows" aria-label="Phone specifications">
+              <div class="spec-row"><span>Xiaomi 13</span><strong>12 GB RAM / 512 GB storage<span class="spec-firmware">Xiaomi.eu · HyperOS 3</span></strong></div>
+              <div class="spec-row"><span>Samsung Galaxy A06</span><strong>6 GB RAM / 128 GB storage</strong></div>
+              <div class="spec-row"><span>iPhone 8</span><strong>64 GB storage · jailbroken</strong></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         СЕКТОР 7: MY NETWORKS — плотный каталог
+         ================================================================== -->
+    <section id="links" class="fullscreen-section" data-nav="links">
+      <div class="section-container">
+        <header class="section-head head-centered section-head-mascot reveal">
+          <div class="section-head-main">
+            <img class="section-mascot" src="assets/vanilla-links.jpg" alt="" loading="lazy" />
+            <h2 class="section-title">find me elsewhere</h2>
+          </div>
+        </header>
+
+        <!-- TELEGRAM -->
+        <div class="link-group">
+          <div class="link-group-head reveal">
+            <span class="link-group-label">Telegram</span>
+            <span class="link-group-rule" aria-hidden="true"></span>
+            <span class="link-group-count">[ 05 ]</span>
+          </div>
+
+          <div class="hub-grid">
+            <div class="premium-glass-card clickable-card reveal brand-tg" data-link="https://t.me/falkorq">
+              <div class="card-meta">
+                <span class="card-platform">Main account</span>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">@falkorq</h3>
+                <p class="card-desc">Message me here.</p>
+              </div>
+              <div class="card-footer-zone">
+                <span class="card-stack">t.me/falkorq</span>
+                <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="premium-glass-card clickable-card reveal" data-link="https://t.me/maybefalkor">
+              <div class="card-meta">
+                <span class="card-platform">Channel</span>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">maybefalkor</h3>
+                <p class="card-desc">My channel for posts and updates.</p>
+              </div>
+              <div class="card-footer-zone">
+                <span class="card-stack">t.me/maybefalkor</span>
+                <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="link-grid">
+            <div class="link-row clickable-card reveal" data-link="https://t.me/kuraihane">
+              <div class="row-text">
+                <span class="row-label">Second account</span>
+                <span class="row-handle">@kuraihane</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://t.me/anonaskbot?start=falkorq">
+              <div class="row-text">
+                <span class="row-label">Anonymous questions</span>
+                <span class="row-handle">anonaskbot</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://t.me/PLFLK">
+              <div class="row-text">
+                <span class="row-label">FLAC playlist</span>
+                <span class="row-handle">PLFLK</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLATFORMS -->
+        <div class="link-group">
+          <div class="link-group-head reveal">
+            <span class="link-group-label">Platforms</span>
+            <span class="link-group-rule" aria-hidden="true"></span>
+            <span class="link-group-count">[ 05 ]</span>
+          </div>
+
+          <div class="link-grid">
+            <div class="link-row copyable reveal" data-copy="f.lkr">
+              <span class="fill-layer" aria-hidden="true"></span>
+              <div class="row-text">
+                <span class="row-label">Discord</span>
+                <span class="row-handle">f.lkr</span>
+              </div>
+              <div class="row-action">
+                <span class="copy-hint">click to copy</span>
+              </div>
+              <span class="copy-feedback">Copied</span>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://m.vk.com/dasterov">
+              <div class="row-text">
+                <span class="row-label">VKontakte</span>
+                <span class="row-handle">dasterov</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://www.tiktok.com/@endomiq?_r=1&amp;_t=ZS-94Rl9D6PkyO">
+              <div class="row-text">
+                <span class="row-label">TikTok</span>
+                <span class="row-handle">@endomiq</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://open.spotify.com/user/31rd5pyraglfe2vuvjmtslg5a7ha?si=d-zhfBvcTh2iLE1wm6eLnQ">
+              <div class="row-text">
+                <span class="row-label">Spotify</span>
+                <span class="row-handle">public profile</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://www.instagram.com/falkorq/profilecard/?igsh=MWp3MGFqejhqNm5p">
+              <div class="row-text">
+                <span class="row-label">Instagram</span>
+                <span class="row-handle">@falkorq</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- ANIME & MANGA -->
+        <div class="link-group">
+          <div class="link-group-head reveal">
+            <span class="link-group-label">Anime &amp; manga</span>
+            <span class="link-group-rule" aria-hidden="true"></span>
+            <span class="link-group-count">[ 04 ]</span>
+          </div>
+
+          <div class="link-grid">
+            <div class="link-row clickable-card reveal" data-link="https://anixartapp.com/profile/2273934">
+              <div class="row-text">
+                <span class="row-label">Anixart</span>
+                <span class="row-handle">2273934</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://shikimori.one/Falkorq">
+              <div class="row-text">
+                <span class="row-label">Shikimori</span>
+                <span class="row-handle">Falkorq</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://mangalib.me/ru/user/7000046">
+              <div class="row-text">
+                <span class="row-label">MangaLib</span>
+                <span class="row-handle">7000046</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="link-row clickable-card reveal" data-link="https://myanimelist.net/profile/falkorq">
+              <div class="row-text">
+                <span class="row-label">MyAnimeList</span>
+                <span class="row-handle">falkorq</span>
+              </div>
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         СЕКТОР 8: SUPPORT — копирование адресов + донат-ссылки
+         ================================================================== -->
+    <section id="support" class="fullscreen-section" data-nav="support">
+      <div class="section-container">
+        <div class="support-panel reveal">
+
+          <div class="support-head">
+            <div class="support-head-main">
+              <img class="section-mascot" src="assets/vanilla-support.jpg" alt="" loading="lazy" />
+              <h2 class="support-title">support</h2>
+            </div>
+            <span class="support-tag">Copy a wallet or open an invoice. TON preferred.</span>
+          </div>
+
+          <div class="support-ledger">
+            <div class="direct-item copyable" data-copy="UQAUYIuLb0QuCONNoDoH6Q0IQn-MD7Xmhy8-Qdlk1uOecIa-" title="UQAUYIuLb0QuCONNoDoH6Q0IQn-MD7Xmhy8-Qdlk1uOecIa-">
+              <div class="fill-layer"></div>
+              <div class="direct-text">
+                <span class="direct-label">ton — preferred</span>
+                <span class="direct-value">UQAUYIuLb0QuCONNoDo<span class="addr-gap" aria-hidden="true">···</span>Qdlk1uOecIa-</span>
+              </div>
+              <svg class="direct-icon icon-copy" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span class="copy-feedback">Copied</span>
+            </div>
+
+            <div class="direct-item copyable" data-copy="TVqZm7VYQTk6rUZLn3MTBKVU6K3EGdKv7F" title="TVqZm7VYQTk6rUZLn3MTBKVU6K3EGdKv7F">
+              <div class="fill-layer"></div>
+              <div class="direct-text">
+                <span class="direct-label">usdt (trc20)</span>
+                <span class="direct-value">TVqZm7VYQTk6rU<span class="addr-gap" aria-hidden="true">···</span>6K3EGdKv7F</span>
+              </div>
+              <svg class="direct-icon icon-copy" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span class="copy-feedback">Copied</span>
+            </div>
+
+            <div class="direct-item copyable" data-copy="UQBMcNt9SLaOxz8aJhJmEXXP_qNUrTztZy_ngVyE2FnenCDS" title="UQBMcNt9SLaOxz8aJhJmEXXP_qNUrTztZy_ngVyE2FnenCDS">
+              <div class="fill-layer"></div>
+              <div class="direct-text">
+                <span class="direct-label">usdt (ton)</span>
+                <span class="direct-value">UQBMcNt9SLaOxz8aJhJ<span class="addr-gap" aria-hidden="true">···</span>gVyE2FnenCDS</span>
+              </div>
+              <svg class="direct-icon icon-copy" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span class="copy-feedback">Copied</span>
+            </div>
+          </div>
+
+          <div class="support-invoices">
+            <span class="support-sub-label">reusable invoices</span>
+            <div class="direct-item clickable-card" data-link="https://t.me/send?start=IVYPbNupMYK5">
+              <span class="invoice-index">01</span>
+              <div class="direct-text">
+                <span class="direct-label">send</span>
+                <span class="direct-value">t.me/send?start=IVYPbNupMYK5</span>
+              </div>
+              <svg class="direct-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="direct-item clickable-card" data-link="https://t.me/xrocket?start=inv_bsdKPdlbwMeZBEJ">
+              <span class="invoice-index">02</span>
+              <div class="direct-text">
+                <span class="direct-label">xrocket</span>
+                <span class="direct-value">t.me/xrocket?start=inv_bsdKPdlbwMeZBEJ</span>
+              </div>
+              <svg class="direct-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="support-colophon">
+            <p class="signature-line">Falkorq — Yui Titov</p>
+            <p class="colophon-note">Moscow, Russia · <span class="colophon-direct">t.me/falkorq</span></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         ФУТЕР
+         ================================================================== -->
+    <footer class="site-footer">
+      <div class="footer-zone footer-left">
+        <span class="footer-mark">FALKORQ</span>
+        <span class="footer-sep" aria-hidden="true"></span>
+        <span class="footer-copy">Yui Titov · Moscow, Russia</span>
+      </div>
+
+      <div class="footer-zone footer-center">
+        <blockquote class="footer-quote" id="page-quote-text">No matter where you go, everyone's connected.</blockquote>
+        <cite class="footer-quote-source" id="page-quote-source">Serial Experiments Lain</cite>
+      </div>
+
+      <div class="footer-zone footer-right">
+        <button class="footer-top" type="button" data-scroll="hero" aria-label="back to top">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 19V5M12 5l-7 7M12 5l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>top</span>
+        </button>
+      </div>
+    </footer>
+
+    <!-- мобильная навигация: стеклянный док -->
+    <nav class="mobile-dock" aria-label="Mobile">
+      <button type="button" data-scroll="hero">main</button>
+      <button type="button" data-scroll="about">about</button>
+      <button type="button" data-scroll="projects">work</button>
+      <button type="button" data-scroll="yuna">yuna</button>
+      <button type="button" data-scroll="signals">signals</button>
+      <button type="button" data-scroll="setup">setup</button>
+      <button type="button" data-scroll="links">networks</button>
+      <button type="button" data-scroll="support">support</button>
+    </nav>
+
+    <div class="flash-toast" id="flash-toast" aria-live="polite">copied</div>
+
+    <script src="script.js?v=20261002-1" defer></script>
+  </body>
+</html>
