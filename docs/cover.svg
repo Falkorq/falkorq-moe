@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="480" viewBox="0 0 1280 480" role="img" aria-labelledby="title desc">
+  <title id="title">falkorq.moe</title>
+  <desc id="desc">Личное пространство Falkor. Тёмная обложка с лавандовой типографикой и ледяной голубой линией сигнала.</desc>
+  <rect width="1280" height="480" fill="#0b1020"/>
+  <path d="M900 0V480M1060 0V480M0 400H1280" stroke="#202d45"/>
+  <circle cx="1060" cy="222" r="142" fill="none" stroke="#334560"/>
+  <circle cx="1060" cy="222" r="99" fill="none" stroke="#334560"/>
+  <path d="M860 222H960L978 200L997 252L1018 164L1040 280L1060 222H1260" fill="none" stroke="#a9dcf7" stroke-width="3"/>
+  <text x="72" y="90" fill="#bec7d9" font-family="Consolas,monospace" font-size="22">falkorq.moe</text>
+  <text x="66" y="258" fill="#f8f8fb" font-family="Arial,sans-serif" font-weight="700" font-size="122" letter-spacing="-6">FALKORQ</text>
+  <text x="74" y="321" fill="#d5bdf1" font-family="Arial,sans-serif" font-size="29">личное пространство / проекты / музыка</text>
+  <text x="74" y="447" fill="#bec7d9" font-family="Consolas,monospace" font-size="19">HTML + CSS + JavaScript</text>
+  <text x="1206" y="447" fill="#a9dcf7" font-family="Consolas,monospace" font-size="19" text-anchor="end">enter the signal</text>
+</svg>
+
