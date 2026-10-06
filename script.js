@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FALKORQ — REDESIGN (дизайн-система serophito)
+   FALKORQ - REDESIGN (дизайн-система serophito)
    Интро-сборка имени, preloader, звёздный canvas, reveal по скроллу,
    glass-навигация, копирование с заливкой, stats.fm recent track,
    счётчик дней Yuna, ротация цитат, московские часы.
@@ -105,7 +105,7 @@ function setupIntro() {
   } else {
     window.addEventListener("load", finish, { once: true });
   }
-  // failsafe: даже если 'load' завис — мир проявляется
+  // failsafe: даже если 'load' завис - мир проявляется
   window.setTimeout(finish, prefersReducedMotion ? 1200 : 5000);
   // второй failsafe (в <head>): через 15с .intro снимается в любом случае
 }
@@ -321,7 +321,7 @@ function setupCopyables() {
 }
 
 /* ==========================================================================
-   8. RECENT TRACK — stats.fm
+   8. RECENT TRACK - stats.fm
    ========================================================================== */
 
 function setNowPlayingCover(imageUrl) {
@@ -359,7 +359,7 @@ function showRecentTrack(track, cached = false) {
       `${cached ? "Saved from stats.fm" : "stats.fm"}${playedAt ? ` · ${playedAt}` : ""}`;
   }
   if (elements.nowPlayingLink) elements.nowPlayingLink.href = track.url;
-  if (elements.currentListening) elements.currentListening.textContent = `${track.artist} — ${track.title}`;
+  if (elements.currentListening) elements.currentListening.textContent = `${track.artist} · ${track.title}`;
   if (elements.npTrackName) elements.npTrackName.textContent = `♪ ${track.title}`;
   elements.npTrackName?.setAttribute("data-link", track.url);
   setNowPlayingCover(track.image);
@@ -504,7 +504,7 @@ function init() {
   setupCopyables();
   setupNavTrackClick();
   updateYunaDays();
-  window.setInterval(updateYunaDays, 60000); // смена суток в 00:00 MOW — без перезагрузки
+  window.setInterval(updateYunaDays, 60000); // смена суток в 00:00 MOW - без перезагрузки
   populateCurrently();
   startNowPlayingPolling();
   rotateQuote();

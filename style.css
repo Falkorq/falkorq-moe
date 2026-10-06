@@ -1,9 +1,9 @@
 /* ==========================================================================
-   FALKORQ — REDESIGN В ДИЗАЙНЕ SEROPHITO
+   FALKORQ - REDESIGN В ДИЗАЙНЕ SEROPHITO
    Палитра строго Ч/Б. Заголовки: Days One (общий) + Fraunces (акценты).
    Градиент text-clip потрачен ровно дважды: #heroName и .yuna-counter.
    Контейнеров три вида: premium-glass-card (кликабельный), panel-quiet
-   (текст), hud-panel (данные). Остальное — строки, полосы, голые figure.
+   (текст), hud-panel (данные). Остальное - строки, полосы, голые figure.
    ========================================================================== */
 
 :root {
@@ -59,12 +59,12 @@ img { display: block; max-width: 100%; }
 button { font: inherit; color: inherit; }
 
 /* ==========================================================================
-   ИНТРО — ПОКАДРОВАЯ СБОРКА ИМЕНИ
+   ИНТРО - ПОКАДРОВАЯ СБОРКА ИМЕНИ
    ==========================================================================
-   На старте body.intro: фон — чёрная пустота, всё кроме hero-имени скрыто.
+   На старте body.intro: фон - чёрная пустота, всё кроме hero-имени скрыто.
    Имя собирается по буквам (.hl, каскад --i), затем «заряжается» свечением.
    По завершении загрузки снимается .intro → фон, шапка и hero-детали
-   плавно проявляются. Текст не двигается — он один и на своём месте. */
+   плавно проявляются. Текст не двигается - он один и на своём месте. */
 
 body.intro { overflow: hidden; }
 
@@ -95,7 +95,7 @@ body.intro .mobile-dock {
 
 body.intro #heroName { pointer-events: none; }
 
-/* имя разбито на буквы — собственную заливку гасим, всё рисуют буквы */
+/* имя разбито на буквы - собственную заливку гасим, всё рисуют буквы */
 body.intro #heroName.lettered {
     background: none;
     will-change: filter;
@@ -139,7 +139,7 @@ body.intro #heroName.lettered .hl {
 }
 
 /* ==========================================================================
-   ПРЕЛОАДЕР — просто чёрный экран, без процентов
+   ПРЕЛОАДЕР - просто чёрный экран, без процентов
    ========================================================================== */
 .preloader {
     position: fixed;
@@ -183,7 +183,7 @@ body.intro #heroName.lettered .hl {
 }
 
 /* ==========================================================================
-   ШАПКА — СТЕКЛЯННЫЙ БАР (единственный backdrop-filter на странице)
+   ШАПКА - СТЕКЛЯННЫЙ БАР (единственный backdrop-filter на странице)
    ========================================================================== */
 .site-nav {
     position: fixed;
@@ -253,7 +253,7 @@ body.intro #heroName.lettered .hl {
     transition: color var(--transition-medium);
 }
 .nav-link:hover { color: var(--text-main); }
-/* активная — подчёркивание, без прыжка вёрстки */
+/* активная - подчёркивание, без прыжка вёрстки */
 .nav-link.active {
     color: var(--text-main);
     font-weight: 600;
@@ -268,7 +268,7 @@ body.intro #heroName.lettered .hl {
 }
 .nav-link:focus-visible { outline: 1px solid rgba(255,255,255,0.3); outline-offset: 2px; border-radius: 8px; }
 
-/* трек в шапке — обычный текст-кнопка, как в оригинале (никаких пилюль) */
+/* трек в шапке - обычный текст-кнопка, как в оригинале (никаких пилюль) */
 .np-name {
     border: none;
     background: none;
@@ -289,7 +289,7 @@ body.intro #heroName.lettered .hl {
 .np-name:focus-visible { outline: 1px solid rgba(255,255,255,0.3); outline-offset: 3px; }
 
 /* ==========================================================================
-   СЕКЦИИ — РАЗМЕР ПОД СОДЕРЖИМОЕ. Полный экран только у hero и yuna
+   СЕКЦИИ - РАЗМЕР ПОД СОДЕРЖИМОЕ. Полный экран только у hero и yuna
    ========================================================================== */
 .fullscreen-section {
     position: relative;
@@ -316,7 +316,7 @@ body.intro #heroName.lettered .hl {
     z-index: 1;
 }
 
-/* заголовок секции — строка: название слева, mono-метка справа */
+/* заголовок секции - строка: название слева, mono-метка справа */
 .section-head {
     display: flex;
     flex-direction: row;
@@ -334,7 +334,7 @@ body.intro #heroName.lettered .hl {
 }
 
 .section-title {
-    font-family: var(--font-heading);   /* Days One — сплошной белый, без градиента */
+    font-family: var(--font-heading);   /* Days One - сплошной белый, без градиента */
     font-size: clamp(1.9rem, 4vw, 2.6rem);
     font-weight: 400;
     letter-spacing: -0.5px;
@@ -370,7 +370,7 @@ body.intro #heroName.lettered .hl {
 }
 
 /* ==========================================================================
-   СЕКТОР 1: HERO — асимметричная титульная стена
+   СЕКТОР 1: HERO - асимметричная титульная стена
    ========================================================================== */
 .hero-section { flex-direction: column; }
 
@@ -425,7 +425,7 @@ body.intro #heroName.lettered .hl {
 }
 .hero-meta-place { color: var(--text-muted); }
 
-/* SCROLL — текст + тонкая линия с бегущим светом; прячется при скролле */
+/* SCROLL - текст + тонкая линия с бегущим светом; прячется при скролле */
 .scroll-indicator-wrapper {
     position: absolute;
     left: 5%;
@@ -487,7 +487,7 @@ body.intro #heroName.lettered .hl {
 }
 
 /* ==========================================================================
-   ПРЕМИУМ-СТЕКЛЯННЫЕ КАРТОЧКИ — вид A: кликабельный каталог (#links hub)
+   ПРЕМИУМ-СТЕКЛЯННЫЕ КАРТОЧКИ - вид A: кликабельный каталог (#links hub)
    ========================================================================== */
 .premium-glass-card {
     position: relative;
@@ -574,7 +574,7 @@ body.intro #heroName.lettered .hl {
     transition: transform var(--transition-hover), filter var(--transition-hover), color var(--transition-hover);
 }
 
-/* КНОПКА-ПИЛЮЛЯ С ШИММЕРОМ — осталась ровно одна: open track */
+/* КНОПКА-ПИЛЮЛЯ С ШИММЕРОМ - осталась ровно одна: open track */
 .card-action-btn {
     position: relative;
     cursor: pointer;
@@ -626,7 +626,7 @@ body.intro #heroName.lettered .hl {
     white-space: nowrap;
 }
 
-/* ХОВЕР — только там, где есть клик. Движение = кликабельность */
+/* ХОВЕР - только там, где есть клик. Движение = кликабельность */
 .clickable-card:hover {
     transform: translate3d(0,-4px,0);
     border-color: rgba(255,255,255,0.15);
@@ -648,7 +648,7 @@ body.intro #heroName.lettered .hl {
 .card-action-btn:focus-visible { outline: 1px solid rgba(255,255,255,0.35); outline-offset: 3px; }
 
 /* ==========================================================================
-   СЕКТОР 3: WORK — реестр (две группы, пять записей, без вкладок)
+   СЕКТОР 3: WORK - реестр (две группы, пять записей, без вкладок)
    ========================================================================== */
 .project-registry {
     display: flex;
@@ -727,7 +727,7 @@ body.intro #heroName.lettered .hl {
     white-space: nowrap;
 }
 
-/* единственная «панель» в секции — головная запись management */
+/* единственная «панель» в секции - головная запись management */
 .registry-row-featured {
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 18px;
@@ -773,7 +773,7 @@ body.intro #heroName.lettered .hl {
 }
 
 /* ==========================================================================
-   СЕКТОР 4: YUNA — набранный мемориальный разворот, без карточек
+   СЕКТОР 4: YUNA - набранный мемориальный разворот, без карточек
    ========================================================================== */
 .yuna-container { max-width: 1040px; }
 
@@ -817,7 +817,7 @@ body.intro #heroName.lettered .hl {
     gap: 12px;
     padding: clamp(34px, 5vw, 60px) clamp(16px, 3vw, 40px);
 }
-/* heartbeat вокруг числа — единственное движение секции */
+/* heartbeat вокруг числа - единственное движение секции */
 .yuna-ring {
     position: absolute;
     inset: 0;
@@ -890,7 +890,7 @@ body.intro #heroName.lettered .hl {
     color: var(--text-muted);
 }
 .yuna-sign {
-    font-family: var(--font-display);   /* Fraunces — единственная «человеческая» строка */
+    font-family: var(--font-display);   /* Fraunces - единственная «человеческая» строка */
     font-weight: 500;
     font-size: 1.05rem;
     letter-spacing: 0.2px;
@@ -901,10 +901,10 @@ body.intro #heroName.lettered .hl {
 }
 
 /* ==========================================================================
-   СЕКТОР 5: NOW (signals) — модуль + hud + цитата. Карточек нет
+   СЕКТОР 5: NOW (signals) - модуль + hud + цитата. Карточек нет
    ========================================================================== */
 #signals.fullscreen-section {
-    padding: clamp(80px, 10vh, 110px) 5% clamp(72px, 9vh, 110px);  /* плотнее соседних — ритм чередуется */
+    padding: clamp(80px, 10vh, 110px) 5% clamp(72px, 9vh, 110px);  /* плотнее соседних - ритм чередуется */
 }
 .signals-head {
     display: flex;
@@ -928,7 +928,7 @@ body.intro #heroName.lettered .hl {
     align-items: start;                       /* намеренно разные высоты */
 }
 
-/* NOW PLAYING — анатомия fx-panel: шапка / тело / действиe снизу */
+/* NOW PLAYING - анатомия fx-panel: шапка / тело / действиe снизу */
 .np-module {
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 18px;
@@ -1006,7 +1006,7 @@ body.intro #heroName.lettered .hl {
 }
 .np-foot { display: flex; justify-content: flex-end; padding: 16px 26px 22px; }
 
-/* CURRENTLY — одна timecode-hud панель строк */
+/* CURRENTLY - одна timecode-hud панель строк */
 .state-hud {
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 18px;
@@ -1038,7 +1038,7 @@ body.intro #heroName.lettered .hl {
     color: var(--text-main);
 }
 
-/* ЦИТАТА — набранный текст без рамок; JS меняет раз в 9 секунд */
+/* ЦИТАТА - набранный текст без рамок; JS меняет раз в 9 секунд */
 .signals-quote {
     margin-top: clamp(48px, 7vh, 80px);
     max-width: 640px;
@@ -1163,10 +1163,10 @@ body.intro #heroName.lettered .hl {
 .addr-gap { white-space: nowrap; color: var(--text-dim); padding: 0 2px; letter-spacing: 2px; }
 
 /* ==========================================================================
-   СЕКТОР 6: SETUP — лист спецификаций (hud-панели, без карточек)
+   СЕКТОР 6: SETUP - лист спецификаций (hud-панели, без карточек)
    ========================================================================== */
 
-/* вид C: hud-panel — анатомия serophito timecode-hud */
+/* вид C: hud-panel - анатомия serophito timecode-hud */
 .hud-panel {
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 18px;
@@ -1233,7 +1233,7 @@ body.intro #heroName.lettered .hl {
     flex-shrink: 0;
 }
 .spec-row strong {
-    font-family: var(--font-mono);             /* значения — машинные строки */
+    font-family: var(--font-mono);             /* значения - машинные строки */
     font-size: 0.78rem;
     font-weight: 400;
     letter-spacing: 0.2px;
@@ -1242,7 +1242,7 @@ body.intro #heroName.lettered .hl {
 }
 
 /* ==========================================================================
-   СЕКТОР 7: MY NETWORKS — плотный каталог (две карточки + строки)
+   СЕКТОР 7: MY NETWORKS - плотный каталог (две карточки + строки)
    ========================================================================== */
 .link-group + .link-group { margin-top: 40px; }
 .link-group-head {
@@ -1284,7 +1284,7 @@ body.intro #heroName.lettered .hl {
 }
 .hub-grid + .link-grid { margin-top: 14px; }
 
-/* service-меткаfeatured-карточек — mono, как набрано в HTML */
+/* service-меткаfeatured-карточек - mono, как набрано в HTML */
 #links .card-platform {
     font-family: var(--font-mono);
     font-size: 0.6rem;
@@ -1315,7 +1315,7 @@ body.intro #heroName.lettered .hl {
 }
 #links .premium-glass-card.brand-tg:hover::after { opacity: 0.13; }
 
-/* строка каталога — анатомия direct-item, без всплытия */
+/* строка каталога - анатомия direct-item, без всплытия */
 .link-row {
     position: relative;
     overflow: hidden;
@@ -1378,7 +1378,7 @@ body.intro #heroName.lettered .hl {
     transform: translate3d(2px,-2px,0) rotate(45deg);
 }
 
-/* copyable-строка (Discord) — та же белая заливка, что в support */
+/* copyable-строка (Discord) - та же белая заливка, что в support */
 .row-action {
     position: relative;
     z-index: 2;
@@ -1403,7 +1403,7 @@ body.intro #heroName.lettered .hl {
 .link-row:focus-visible { outline: 1px solid rgba(255,255,255,0.35); outline-offset: 3px; }
 
 /* ==========================================================================
-   СЕКТОР 8: SUPPORT — одна поверхность действий
+   СЕКТОР 8: SUPPORT - одна поверхность действий
    ========================================================================== */
 #support.fullscreen-section {
     padding: clamp(96px, 12vh, 140px) 5% clamp(120px, 16vh, 140px);
@@ -1411,7 +1411,7 @@ body.intro #heroName.lettered .hl {
 
 .support-panel {
     max-width: 880px;
-    margin: 0 auto 0 0;                       /* левое выравнивание — рвём центральную ось */
+    margin: 0 auto 0 0;                       /* левое выравнивание - рвём центральную ось */
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 18px;
     overflow: hidden;
@@ -1529,7 +1529,7 @@ body.intro #heroName.lettered .hl {
 .colophon-direct { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); }
 
 /* ==========================================================================
-   ФУТЕР — трёхзонная колофон-полоса (плотный фон, blur только в шапке)
+   ФУТЕР - трёхзонная колофон-полоса (плотный фон, blur только в шапке)
    ========================================================================== */
 .site-footer {
     position: relative;
@@ -1584,7 +1584,7 @@ body.intro #heroName.lettered .hl {
     letter-spacing: 2px;
     color: var(--text-dim);
 }
-.footer-quote-source::before { content: "— "; color: var(--text-dim); }
+.footer-quote-source::before { content: "- "; color: var(--text-dim); }
 .footer-top {
     display: inline-flex;
     align-items: center;
@@ -1607,7 +1607,7 @@ body.intro #heroName.lettered .hl {
 .footer-top:focus-visible { outline: 1px solid rgba(255,255,255,0.3); outline-offset: 3px; }
 
 /* ==========================================================================
-   МОБИЛЬНЫЙ ДОК + ТОСТ — плотные панели, без стекла
+   МОБИЛЬНЫЙ ДОК + ТОСТ - плотные панели, без стекла
    ========================================================================== */
 .mobile-dock {
     position: fixed;

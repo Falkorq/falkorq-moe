@@ -316,3 +316,19 @@ body {
     .hero-art, .signals-art, .section-mascot { transition: none; }
 }
 
+
+
+/* Refined registry layout without template numbers (Frontend Design & Taste Skill) */
+.registry-row {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    column-gap: 16px !important;
+    padding: 20px 0 !important;
+}
+.registry-row-featured .registry-body {
+    padding-left: 0 !important;
+}
+.registry-role {
+    font-size: 0.8rem !important;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
